@@ -1,2 +1,2 @@
 # Java-ee
-Proyectos en Java
+Proyecto en Java, sistema de gestion de alumnos.
