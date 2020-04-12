@@ -5,8 +5,14 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name="Persona.findAll", query="SELECT p FROM Personas p ORDER BY p.idPersona")
+})
+@Table(name="personas")
 public class Personas implements Serializable{
 	
+	private static final EntityManager ENTITY_MANAGER = null;
+
 	private static final long serialVersionUID = 1L;
 	
 	@Id

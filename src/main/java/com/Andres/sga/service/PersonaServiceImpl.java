@@ -3,42 +3,45 @@ package com.Andres.sga.service;
 import java.util.*;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
+import com.Andres.sga.datos.PersonaDao;
 import com.Andres.sga.domain.Personas;
 
 @Stateless
 public class PersonaServiceImpl implements PersonaServiceRemote{
-
+	
+	@Inject
+	private PersonaDao personaDao;
+	
+	@Override
 	public List<Personas> listarPersonas() {
-		List<Personas> persona = new ArrayList<Personas>();
-		persona.add(new Personas("Juan","Gomez","JuanGomez@mail.com","555123456"));
-		persona.add(new Personas("Luis","Garcia","LuisGarcia@mail.com","548759514"));
-		return persona;
+		return personaDao.findAllPersonas();
 	}
-
-	public Personas encontrarPersonaPorId(Personas personas) {
-		
-		return personas;
+	
+	@Override
+	public Personas encontrarPersonaPorId(Personas personas) {		
+		return personaDao.findPersonaById(personas);
 	}
-
+	@Override
+	
 	public Personas encontrarPersonaPorEmail(Personas personas) {
-		// TODO Auto-generated method stub
-		return null;
+		return personaDao.findPersonaByEmail(personas);
 	}
 
+	@Override
 	public void registrarPersona(Personas personas) {
-		// TODO Auto-generated method stub
-		
+		personaDao.insertPersona(personas);
 	}
 
+	@Override
 	public void modificarPersona(Personas personas) {
-		// TODO Auto-generated method stub
-		
+		personaDao.updatePersona(personas);
 	}
 
+	@Override
 	public void eliminarPersona(Personas personas) {
-		// TODO Auto-generated method stub
-		
+		personaDao.deletePersona(personas);
 	}
 
 }
