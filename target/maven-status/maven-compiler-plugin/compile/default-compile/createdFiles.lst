@@ -1,0 +1,5 @@
+com\Andres\sga\service\PersonaServiceImpl.class
+com\Andres\sga\client\ClientePersonaService.class
+test\ClienteEntidadPersona.class
+com\Andres\sga\domain\Personas.class
+com\Andres\sga\service\PersonaServiceRemote.class

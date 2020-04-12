@@ -2,10 +2,18 @@ package com.Andres.sga.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.*;
+
+@Entity
 public class Personas implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="IdPersonas")	 
 	private int idPersona;
+	
 	private String nombre;
 	private String apellido;
 	private String email;
@@ -15,8 +23,7 @@ public class Personas implements Serializable{
 		
 	}
 
-	public Personas(int idPersona, String nombre, String apellido, String email, String telefono) {		
-		this.idPersona = idPersona;
+	public Personas(String nombre, String apellido, String email, String telefono) {		
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
